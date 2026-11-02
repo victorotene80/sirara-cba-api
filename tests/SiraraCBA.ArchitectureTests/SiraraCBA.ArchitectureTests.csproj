@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Deliberately references no production project. These rules are checked
+       against the project graph and the source tree, not against loaded
+       assemblies, so they hold before a module exists and cannot be satisfied by
+       accident of what happens to be referenced here. -->
+
+</Project>

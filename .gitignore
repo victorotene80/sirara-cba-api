@@ -1,0 +1,14 @@
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+artifacts/
+TestResults/
+.DS_Store
+appsettings.*.Local.json
+
+# Local development workflow — not part of the product
+graph_loop_template/
+START-HERE.md

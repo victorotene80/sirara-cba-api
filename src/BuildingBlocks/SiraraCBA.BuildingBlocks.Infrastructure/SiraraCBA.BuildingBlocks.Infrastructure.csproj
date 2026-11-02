@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../SiraraCBA.BuildingBlocks.Application/SiraraCBA.BuildingBlocks.Application.csproj" />
+  </ItemGroup>
+
+  <!-- The Microsoft.Extensions.* abstractions are not referenced as packages: the
+       ASP.NET Core shared framework below already supplies every one of them, and
+       .NET 10's package pruning rejects the duplicate (NU1510). -->
+
+  <!-- IModule.MapEndpoints needs ASP.NET routing types. This is the only building
+       block that may see them; Application never does. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" />
+  </ItemGroup>
+
+</Project>

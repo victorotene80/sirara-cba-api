@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../../SharedKernel/SiraraCBA.SharedKernel/SiraraCBA.SharedKernel.csproj" />
+  </ItemGroup>
+
+  <!-- Abstractions only. No EF Core, no Npgsql, no ASP.NET. architecture.md §3. -->
+
+</Project>

@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Modules/Ledger/SiraraCBA.Modules.Ledger.Domain/SiraraCBA.Modules.Ledger.Domain.csproj" />
+    <ProjectReference Include="../../src/Modules/Ledger/SiraraCBA.Modules.Ledger.Contracts/SiraraCBA.Modules.Ledger.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

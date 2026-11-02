@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/SharedKernel/SiraraCBA.SharedKernel/SiraraCBA.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

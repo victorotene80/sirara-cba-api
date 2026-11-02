@@ -1,0 +1,4 @@
+# The composition root's Program and its module-assembly list live in the global
+# namespace by convention (WebApplicationFactory finds Program there).
+[*.cs]
+dotnet_diagnostic.CA1050.severity = none

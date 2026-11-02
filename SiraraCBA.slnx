@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/src/">
+    <Folder Name="/src/SharedKernel/">
+      <Project Path="src/SharedKernel/SiraraCBA.SharedKernel/SiraraCBA.SharedKernel.csproj" />
+    </Folder>
+    <Folder Name="/src/BuildingBlocks/">
+      <Project Path="src/BuildingBlocks/SiraraCBA.BuildingBlocks.Application/SiraraCBA.BuildingBlocks.Application.csproj" />
+      <Project Path="src/BuildingBlocks/SiraraCBA.BuildingBlocks.Infrastructure/SiraraCBA.BuildingBlocks.Infrastructure.csproj" />
+    </Folder>
+    <Folder Name="/src/Hosts/">
+      <Project Path="src/Hosts/SiraraCBA.Api/SiraraCBA.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/Modules/">
+      <Project Path="src/Modules/Ledger/SiraraCBA.Modules.Ledger.Contracts/SiraraCBA.Modules.Ledger.Contracts.csproj" />
+      <Project Path="src/Modules/Ledger/SiraraCBA.Modules.Ledger.Domain/SiraraCBA.Modules.Ledger.Domain.csproj" />
+      <Project Path="src/Modules/Ledger/SiraraCBA.Modules.Ledger.Infrastructure/SiraraCBA.Modules.Ledger.Infrastructure.csproj" />
+    </Folder>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SiraraCBA.SharedKernel.UnitTests/SiraraCBA.SharedKernel.UnitTests.csproj" />
+    <Project Path="tests/SiraraCBA.ArchitectureTests/SiraraCBA.ArchitectureTests.csproj" />
+    <Project Path="tests/SiraraCBA.Api.SmokeTests/SiraraCBA.Api.SmokeTests.csproj" />
+    <Project Path="tests/SiraraCBA.Modules.Ledger.UnitTests/SiraraCBA.Modules.Ledger.UnitTests.csproj" />
+    <Project Path="tests/SiraraCBA.Modules.Ledger.IntegrationTests/SiraraCBA.Modules.Ledger.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

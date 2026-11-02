@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Real containerised PostgreSQL, never an in-memory provider (D-13): an
+       in-memory provider silently accepts what real PostgreSQL rejects, which is
+       exactly the class of bug this slice exists to prevent. -->
+  <ItemGroup>
+    <ProjectReference Include="../../src/Modules/Ledger/SiraraCBA.Modules.Ledger.Infrastructure/SiraraCBA.Modules.Ledger.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Testcontainers.PostgreSql" />
+  </ItemGroup>
+
+</Project>

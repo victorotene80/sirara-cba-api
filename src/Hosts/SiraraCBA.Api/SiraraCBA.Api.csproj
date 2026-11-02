@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <!-- The host references BuildingBlocks.Infrastructure and, as modules are
+         added, each module's Infrastructure project — for registration only.
+         It may never reference a module's Domain (architecture.md §3, §7). -->
+    <ProjectReference Include="../../BuildingBlocks/SiraraCBA.BuildingBlocks.Infrastructure/SiraraCBA.BuildingBlocks.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

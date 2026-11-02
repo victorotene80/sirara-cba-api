@@ -1,0 +1,19 @@
+# EF Core generates the files in this folder and rewrites them on every
+# `dotnet ef migrations add`. Holding generated code to hand-written style rules
+# means either editing it back after every regeneration, or a build that breaks the
+# next time the tool runs.
+#
+# Scoped to this folder only. Nothing about correctness is relaxed: warnings are
+# still errors here, and the compiler, the analyzers that matter and every gate from
+# E1 to E9 apply unchanged. What is switched off is formatting the tool controls.
+
+[*.cs]
+
+# File-scoped namespaces — EF emits block-scoped.
+dotnet_diagnostic.IDE0161.severity = none
+
+# Unnecessary usings — EF emits a fixed preamble.
+dotnet_diagnostic.IDE0005.severity = none
+
+# Constant array arguments — EF emits inline column arrays.
+dotnet_diagnostic.CA1861.severity = none

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Own Domain and Contracts, plus BuildingBlocks. Never another module
+       (architecture.md §3, ER-1). No Application project exists yet — S03 has no
+       use case; the posting door is implemented in S04. -->
+  <ItemGroup>
+    <ProjectReference Include="../SiraraCBA.Modules.Ledger.Domain/SiraraCBA.Modules.Ledger.Domain.csproj" />
+    <ProjectReference Include="../SiraraCBA.Modules.Ledger.Contracts/SiraraCBA.Modules.Ledger.Contracts.csproj" />
+    <ProjectReference Include="../../../BuildingBlocks/SiraraCBA.BuildingBlocks.Application/SiraraCBA.BuildingBlocks.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+  </ItemGroup>
+
+</Project>

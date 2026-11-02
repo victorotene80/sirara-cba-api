@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Boots the real host in-process. Not an integration suite: it touches no
+       database, so it belongs under E2 with the unit suites rather than under E3,
+       which means Testcontainers PostgreSQL (D-13). -->
+
+  <!-- Deliberately not the Web SDK. "Only the Api host is a web project" is a rule
+       the repository states, and a test project that boots a host is not a reason to
+       make it false — the framework reference is all this needs. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="OpenTelemetry.Exporter.InMemory" />
+    <ProjectReference Include="../../src/Hosts/SiraraCBA.Api/SiraraCBA.Api.csproj" />
+  </ItemGroup>
+
+</Project>

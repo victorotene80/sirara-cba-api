@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- SharedKernel has NO dependencies. Not EF Core, not a mediator, not ASP.NET,
+       not any module. architecture.md §3. -->
+
+</Project>

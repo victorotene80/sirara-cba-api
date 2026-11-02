@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- A module's only public surface. References the SharedKernel and nothing else —
+       not even its own Domain (architecture.md §3, ER-1, ER-5). CS1591 is an error
+       here by Directory.Build.props: this is the module's published API. -->
+  <ItemGroup>
+    <ProjectReference Include="../../../SharedKernel/SiraraCBA.SharedKernel/SiraraCBA.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+# CI runs the evaluator node's own gates — the same script, not a reimplementation
+# of it (graph_loop_template/nodes/05_evaluator.md, E1-E9).
+#
+# This matters more than it looks. If CI checked a different set of things from
+# ./scripts/verify.sh, a slice could pass the loop's gate and fail CI, or worse
+# the reverse, and "green" would stop meaning one thing. One gate, two places to
+# run it.
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    # E3 pulls postgres:17-alpine through Testcontainers on first run (D-13: a
+    # real database, never an in-memory provider). Docker is preinstalled on
+    # ubuntu-latest; no service container is declared because Testcontainers
+    # starts and disposes its own.
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore SiraraCBA.slnx
+
+      - name: Evaluator gates E1-E9
+        run: ./scripts/verify.sh
+
+      - name: Collect gate logs
+        if: always()
+        run: |
+          mkdir -p gate-logs
+          cp /tmp/sirara-*.log gate-logs/ 2>/dev/null || true
+
+      - name: Upload gate logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-logs
+          path: gate-logs/
+          if-no-files-found: ignore
+          retention-days: 14

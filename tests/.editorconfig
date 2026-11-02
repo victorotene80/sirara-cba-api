@@ -1,0 +1,13 @@
+# Test-project rules. Scoped here deliberately: production code stays under the
+# root .editorconfig unchanged.
+
+[*.cs]
+
+# CA1707 (no underscores in member names) contradicts context/coding-standards.md,
+# Testing: "Naming: MethodOrScenario_Condition_ExpectedOutcome". That convention is
+# the contract, and coding-standards.md states the tie-break — "Where a rule and a
+# framework default conflict, the rule wins". In ArchitectureTests the underscore
+# also carries meaning: the Er01_… prefix binds each test to its rule in
+# architecture.md §4, so renaming would cost the traceability the suite exists for.
+# Suppressed for tests only.
+dotnet_diagnostic.CA1707.severity = none
