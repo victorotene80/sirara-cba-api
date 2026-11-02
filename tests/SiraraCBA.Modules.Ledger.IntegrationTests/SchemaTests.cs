@@ -31,6 +31,29 @@ public sealed class SchemaTests
     }
 
     [Fact]
+    public async Task MigrationsHistory_LivesInTheLedgerSchema_AndNowhereElse()
+    {
+        // ER-2. EF's default is public.__EFMigrationsHistory: one table outside every
+        // module's schema, which Identity and Approvals would share the moment they
+        // migrate. Found by the step-38 review, not by Er02_, which only looks for
+        // another module's schema name.
+        long inLedger = await _db.CountAsOwnerAsync(
+            $"""
+             select count(*) from information_schema.tables
+             where table_schema = '{LedgerSchema.Name}' and table_name = '{LedgerSchema.MigrationsHistory}'
+             """);
+
+        long elsewhere = await _db.CountAsOwnerAsync(
+            $"""
+             select count(*) from information_schema.tables
+             where table_schema <> '{LedgerSchema.Name}' and table_name = '{LedgerSchema.MigrationsHistory}'
+             """);
+
+        inLedger.ShouldBe(1);
+        elsewhere.ShouldBe(0, "No module's migrations history may live outside its own schema.");
+    }
+
+    [Fact]
     public async Task JournalLines_IsRangePartitioned_ByPostingDate()
     {
         // Not "a partition exists" — that the table itself is declared partitioned,

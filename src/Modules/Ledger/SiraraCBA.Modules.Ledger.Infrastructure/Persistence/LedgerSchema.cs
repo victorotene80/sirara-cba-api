@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore.Migrations;
+
 namespace SiraraCBA.Modules.Ledger.Infrastructure.Persistence;
 
 /// <summary>
@@ -18,6 +20,9 @@ public static class LedgerSchema
     public const string JournalEntries = "journal_entries";
     public const string JournalLines = "journal_lines";
     public const string Balances = "balances";
+
+    /// <summary>EF's migrations history, kept in this schema rather than EF's default <c>public</c>.</summary>
+    public const string MigrationsHistory = HistoryRepository.DefaultTableName;
 
     /// <summary>The least-privileged role the application connects as.</summary>
     /// <remarks>

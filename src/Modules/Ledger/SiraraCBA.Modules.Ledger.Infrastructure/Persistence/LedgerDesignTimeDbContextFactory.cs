@@ -19,7 +19,7 @@ public sealed class LedgerDesignTimeDbContextFactory : IDesignTimeDbContextFacto
 {
     public LedgerDbContext CreateDbContext(string[] args) =>
         new(new DbContextOptionsBuilder<LedgerDbContext>()
-                .UseNpgsql("Host=localhost;Database=sirara_design_time")
+                .UseLedgerNpgsql("Host=localhost;Database=sirara_design_time")
                 .Options,
             new InMemoryCurrencyRegistry(DesignTimeCurrencies));
 

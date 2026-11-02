@@ -106,7 +106,7 @@ public sealed class LedgerDatabaseFixture : IAsyncLifetime
 
     public LedgerDbContext CreateOwnerContext() =>
         new(new DbContextOptionsBuilder<LedgerDbContext>()
-            .UseNpgsql(OwnerConnectionString)
+            .UseLedgerNpgsql(OwnerConnectionString)
             .Options,
             Currencies);
 
